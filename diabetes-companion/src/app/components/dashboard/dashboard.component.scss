@@ -1,0 +1,48 @@
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.card {
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.chart-card {
+  grid-column: 1 / -1; // full-width chart
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+h2,
+h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+
+  li {
+    padding: 0.3rem 0;
+    font-size: 14px;
+  }
+}
+
+.reflection-text {
+  font-style: italic;
+  font-size: 14px;
+  color: #555;
+  margin-top: 0.5rem;
+}

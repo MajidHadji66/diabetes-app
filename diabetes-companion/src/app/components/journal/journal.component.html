@@ -1,0 +1,19 @@
+<mat-card class="journal-container">
+  <h2>📝 Daily Reflection</h2>
+
+  <form [formGroup]="journalForm" (ngSubmit)="saveReflection()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Write your thoughts or observations</mat-label>
+      <textarea matInput rows="5" formControlName="note"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  </form>
+  <div *ngIf="entries.length > 0" class="history">
+    <h3>Journal History</h3>
+    <mat-card *ngFor="let entry of entries">
+      <p class="entry-date">{{ entry.date | date : "medium" }}</p>
+      <p class="entry-note">“{{ entry.note }}”</p>
+    </mat-card>
+  </div>
+</mat-card>

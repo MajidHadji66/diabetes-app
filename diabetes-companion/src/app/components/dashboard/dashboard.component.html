@@ -1,0 +1,43 @@
+<div class="dashboard-grid">
+  <!-- Full-width chart -->
+  <mat-card class="card chart-card">
+    <h2><mat-icon>monitor_heart</mat-icon> Glucose Trend</h2>
+    <app-cgm-chart></app-cgm-chart>
+  </mat-card>
+
+  <!-- Meals -->
+  <mat-card class="card">
+    <h3><mat-icon>restaurant</mat-icon> Meals</h3>
+    <mat-divider></mat-divider>
+    <ul>
+      <li *ngFor="let meal of meals">
+        {{ meal.time }} – <b>{{ meal.name }}</b> ({{ meal.carbs }}g)
+      </li>
+    </ul>
+  </mat-card>
+
+  <!-- Exercise -->
+  <mat-card class="card">
+    <h3><mat-icon>directions_bike</mat-icon> Exercise</h3>
+    <mat-divider></mat-divider>
+    <ul>
+      <li *ngFor="let activity of exercises">
+        {{ activity.time }} – <b>{{ activity.type }}</b> ({{
+          activity.duration
+        }}
+        min)
+      </li>
+    </ul>
+  </mat-card>
+
+  <!-- Reflection -->
+  <mat-card class="card full">
+    <h3><mat-icon>note_alt</mat-icon> Reflection</h3>
+    <mat-divider></mat-divider>
+    <p class="reflection-text">“{{ reflection }}”</p>
+    <p *ngIf="lastReflectionDate" class="reflection-date">
+      <mat-icon inline>access_time</mat-icon>
+      {{ lastReflectionDate | date : "short" }}
+    </p>
+  </mat-card>
+</div>

@@ -1,0 +1,19 @@
+<nav>
+  <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a> |
+  <a routerLink="/diet-tracker" routerLinkActive="active">Diet Tracker</a> |
+  <a routerLink="/exercise-tracker" routerLinkActive="active"
+    >Exercise Tracker</a
+  >
+  | <a routerLink="/journal" routerLinkActive="active">Journal</a> |
+  <a routerLink="/settings" routerLinkActive="active">Settings</a>
+</nav>
+
+<main style="min-height: calc(100vh - 160px); padding-bottom: 2rem">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="app-footer">
+  <p>
+    © 2025 Diabetes Journal — Built with ❤️ for health, awareness, and control.
+  </p>
+</footer>
