@@ -45,23 +45,6 @@ To support sustainable diabetes management through meaningful behavioral insight
 - Insightful: Show patterns, not just data
 - Simple logging: Fast, intuitive input methods
 
-## 📁 Project Setup
-
-```bash
-ng new diabetes-companion --style=scss --routing
-cd diabetes-companion
-ng add @angular/material
-```
-
-## 📌 Components to Generate
-
-```bash
-ng generate component pages/dashboard
-ng generate component components/cgm-chart
-ng generate component pages/diet-tracker
-ng generate component pages/exercise-tracker
-ng generate component pages/journal
-ng generate component pages/settings
 ```
 
 ---
