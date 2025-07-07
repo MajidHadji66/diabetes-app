@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { CgmChartComponent } from '../cgm-chart/cgm-chart.component';
+import { ApiServer } from '../../services/api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,6 +20,7 @@ import { CgmChartComponent } from '../cgm-chart/cgm-chart.component';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
+  constructor(private api: ApiServer) {}
   lastReflectionDate: string | null = null;
   meals = [
     { time: '08:00', name: 'Breakfast', carbs: 20 },
@@ -31,11 +33,11 @@ export class DashboardComponent {
     'Felt steady today. Glucose stayed in range after walk and breakfast.';
 
   ngOnInit(): void {
-    const saved = localStorage.getItem('journalEntries');
-    const entries = saved ? JSON.parse(saved) : [];
-    if (entries.length > 0) {
-      this.reflection = entries[0].note;
-      this.lastReflectionDate = entries[0].date;
-    }
+    this.api.getJournalEntries().subscribe((entries: any[]) => {
+      if (entries.length > 0) {
+        this.reflection = entries[0].note;
+        this.lastReflectionDate = entries[0].date;
+      }
+    });
   }
 }
